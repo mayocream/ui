@@ -33,5 +33,5 @@ jobs:
           pnpm version patch
       - run: pnpm release
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: git push --follow-tags
