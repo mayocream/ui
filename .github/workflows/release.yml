@@ -17,6 +17,8 @@ permissions:
 jobs:
   # Single deploy job since we're just deploying
   release:
+    environment:
+      name: release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,5 +35,5 @@ jobs:
           pnpm version patch
       - run: pnpm release
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - run: git push --follow-tags
